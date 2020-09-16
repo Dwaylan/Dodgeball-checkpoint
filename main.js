@@ -64,7 +64,33 @@ const blueTeam = []
 const redTeam = []
 
 class player {
-    constructor(){}
+    constructor(){
+
+    }
+}
+
+class dodgeballPlayer{
+    
+    canThrowBall;
+
+    canDodgeBall;
+
+    hadPaid;
+
+    isHealthy;
+
+    yearsExperience;
+
+// The requirements below are what I deemed necessary to construct our players
+    constructor(canThrowBall,canDodgeBall,yearsExperience){
+        this.canDodgeBall = canThrowBall
+        this.canDodgeBall = canDodgeBall
+        this.yearsExperience = yearsExperience
+    }
+
+
+
+    
 }
 
 class blueTeammate {
