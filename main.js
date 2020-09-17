@@ -11,86 +11,86 @@ const arrOfPeople = [
   {
     id: 2,
     name: "Charles Young",
-    age: 55,
+    age: "age " + 55,
     skillSet: "welding",
     placeBorn: "Omaha, Nebraska",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 6 + " years of experience",
   },
   {
     id: 3,
     name: "Judy Twilight",
-    age: 35,
+    age: "age " + 35,
     skillSet: "fishing",
     placeBorn: "Louisville, Kentucky",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 5 + " years of experience",
   },
   {
     id: 4,
     name: "Cynthia Doolittle",
-    age: 20,
+    age: "age " + 20,
     skillSet: "tic tac toe",
     placeBorn: "Pawnee, Texas",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 7 + " years of experience",
   },
   {
     id: 5,
     name: "John Willouby",
-    age: 28,
+    age: "age " + 28,
     skillSet: "pipe fitting",
     placeBorn: "New York, New York",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 6 + " years of experience",
   },
   {
     id: 6,
     name: "Stan Honest",
-    age: 20,
+    age: "age " + 20,
     skillSet: "boom-a-rang throwing",
     placeBorn: "Perth, Australia",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 8 + " years of experience",
   },
   {
     id: 7,
     name: "Mia Watu",
-    age: 17,
+    age: "age " + 17,
     skillSet: "acrobatics",
     placeBorn: "Los Angeles, California",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 6 + " years of experience",
   },
   {
     id: 8,
     name: "Walter Cole",
-    age: 32,
+    age: "age " + 32,
     skillSet: "jump rope",
     placeBorn: "New Orleans, Louisiana",
     canThrowBall: true,
     canDodgeBall: true,
     hasPaid: true,
     isHealthy: true,
-    yearsExperience: 6,
+    yearsExperience: 4 + " years of experience",
   },
 ];
 // Names of players need to be pushed from list of players array to their
@@ -153,13 +153,22 @@ const listPeopleChoices = () => {
     //  below is the inner text for the newly created button
     button.innerHTML = "Make Player";
     button.addEventListener("click", function () {
+      console.log(person.name, "has been made a player");
       //  removing name from the list element, remove li from ul
       listElement.removeChild(li);
       makePlayer(person.id);
     });
     li.appendChild(button);
     li.appendChild(
-      document.createTextNode(person.name + " - " + person.skillSet)
+      document.createTextNode(
+        person.name +
+          " - " +
+          person.age +
+          " - " +
+          person.skillSet +
+          " - " +
+          person.yearsExperience
+      )
     );
     listElement.append(li);
   });
