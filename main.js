@@ -130,9 +130,21 @@ class Player {
 // Maybe once they become a player on either team these will be relevant
 class DodgeballPlayer extends Player {
   // The requirements below are what I deemed necessary to construct our players
-  constructor(mascot, color) {
-    //  Super refers to the parent class
-    super();
+  constructor(player, mascot, color) {
+    //  Super refers to the parent class. I passed everything up to the parent
+    // constructor to delegate
+    super(
+      player.id,
+      player.name,
+      player.age,
+      player.skillSet,
+      player.placeBorn,
+      player.canThrowBall,
+      player.canDodgeBall,
+      player.hasPaid,
+      player.isHealthy,
+      player.yearsExperience
+    );
     this.mascot = mascot;
     this.color = color;
   }
@@ -140,6 +152,9 @@ class DodgeballPlayer extends Player {
   joinRedTeam() {
     //  Pushed dodgeball player on to the red team
     redTeam.push(this.player);
+  }
+  joinBlueTeam() {
+    blueTeam.push(this.player);
   }
 }
 
@@ -223,13 +238,17 @@ const makePlayer = (id) => {
   li.append(blueButton);
   blueButton.addEventListener("click", function () {
     console.log("blue button was clicked");
-    makeBlue();
+    makeBlue(newPlayer);
   });
 };
 let makeRed = (player) => {
-  const redTeammate = new DodgeballPlayer();
-  // "red",
-  // "lion"
+  const redTeammate = new DodgeballPlayer(player, "lion", "red");
   redTeammate.joinRedTeam(player);
   console.log(redTeammate);
+};
+
+let makeBlue = (player) => {
+  const blueTeammate = new DodgeballPlayer(player, "Dolphin", "blue");
+  blueTeammate.joinBlueTeam(player);
+  console.log(blueTeammate);
 };
