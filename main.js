@@ -226,16 +226,22 @@ const makePlayer = (id) => {
   dodgeBallPlayersArray.append(li);
   // Created red button for red team
   let redButton = document.createElement("button");
+  // Created team color text inside of button
   redButton.innerHTML = "red team";
+  // Appended button to the li
   li.append(redButton);
+  // When the button is clicked it will activate our new player function
   redButton.addEventListener("click", function () {
     console.log("red button was clicked");
     makeRed(newPlayer);
   });
   // Created blue button for blue team
   let blueButton = document.createElement("button");
+  // Created team color text inside of button
   blueButton.innerHTML = "blue team";
+  // Appended button to the li
   li.append(blueButton);
+  // When the blue button is clicked it will activate our new player function
   blueButton.addEventListener("click", function () {
     console.log("blue button was clicked");
     makeBlue(newPlayer);
@@ -252,3 +258,35 @@ let makeBlue = (player) => {
   blueTeammate.joinBlueTeam(player);
   console.log(blueTeammate);
 };
+// Adding the text for the red array
+redTeam.forEach((player) => {
+  //  for each red player we will create an li with id and number attributes
+  // and append it to the DOM
+  const li = document.createElement("li");
+  li.setAttribute("id", "num:" + itemid);
+  //and create a text node to display the person and their information
+  li.appendChild(
+    document.createTextNode(
+      " " + player.name + " - " + player.color + " - " + player.mascot + " "
+    )
+  );
+
+  listElement.append(li);
+  itemid += 1; // add a increase for the ids we set attributes for
+});
+
+// Adding text for the blue array
+blueTeam.forEach((player) => {
+  //  for each blue player we will create an li with id and number attributes
+  // and append it to the DOM
+  const li = document.createElement("li");
+  li.setAttribute("id", "num:" + itemid);
+  li.appendChild(
+    document.createTextNode(
+      " " + player.name + " - " + player.color + " - " + player.mascot + " "
+    )
+  );
+
+  listElement.append(li);
+  itemid += 1; // add a increase for the ids we set attributes for
+});
