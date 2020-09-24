@@ -259,8 +259,11 @@ let makeRed = (player) => {
   const lion = document.createElement("li");
   //  We are going to append a name and masot to our lion element
   lion.appendChild(
-    document.createTextNode(redTeammate.name + " - " + redTeammate.mascot)
+    document.createTextNode(
+      redTeammate.name + " - " + "welcome to team " + redTeammate.mascot
+    )
   );
+  // Some CSS
   lion.style.color = "red";
   lion.style.listStyle = "none";
   redTeamUl.append(lion);
@@ -276,8 +279,11 @@ let makeBlue = (player) => {
   const dolphin = document.createElement("li");
   //  We are going to append a name and mascot to our dolphin element
   dolphin.appendChild(
-    document.createTextNode(blueTeammate.name + " - " + blueTeammate.mascot)
+    document.createTextNode(
+      blueTeammate.name + " - " + "welcome to team " + blueTeammate.mascot
+    )
   );
+  // Some CSS
   dolphin.style.color = "blue";
   dolphin.style.listStyle = "none";
   blueTeamUl.append(dolphin);
