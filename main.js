@@ -233,6 +233,7 @@ const makePlayer = (id) => {
   // When the button is clicked it will activate our new player function
   redButton.addEventListener("click", function () {
     console.log("red button was clicked");
+    dodgeBallPlayersArray.removeChild(li);
     makeRed(newPlayer);
   });
   // Created blue button for blue team
@@ -244,6 +245,7 @@ const makePlayer = (id) => {
   // When the blue button is clicked it will activate our new player function
   blueButton.addEventListener("click", function () {
     console.log("blue button was clicked");
+    dodgeBallPlayersArray.removeChild(li);
     makeBlue(newPlayer);
   });
 };
@@ -251,42 +253,32 @@ let makeRed = (player) => {
   const redTeammate = new DodgeballPlayer(player, "lion", "red");
   redTeammate.joinRedTeam(player);
   console.log(redTeammate);
+  // The variable below grabs the red UL from the DOM
+  let redTeamUl = document.getElementById("red");
+  //  The lion variable creates and li in the DOM
+  const lion = document.createElement("li");
+  //  We are going to append a name and masot to our lion element
+  lion.appendChild(
+    document.createTextNode(redTeammate.name + " - " + redTeammate.mascot)
+  );
+  lion.style.color = "red";
+  lion.style.listStyle = "none";
+  redTeamUl.append(lion);
 };
 
 let makeBlue = (player) => {
   const blueTeammate = new DodgeballPlayer(player, "Dolphin", "blue");
   blueTeammate.joinBlueTeam(player);
   console.log(blueTeammate);
+  //  The variable below grabs the blue UL from the DOM
+  let blueTeamUl = document.getElementById("blue");
+  //  The dolphin variable creates and li in the DOM
+  const dolphin = document.createElement("li");
+  //  We are going to append a name and mascot to our dolphin element
+  dolphin.appendChild(
+    document.createTextNode(blueTeammate.name + " - " + blueTeammate.mascot)
+  );
+  dolphin.style.color = "blue";
+  dolphin.style.listStyle = "none";
+  blueTeamUl.append(dolphin);
 };
-// Adding the text for the red array
-redTeam.forEach((player) => {
-  //  for each red player we will create an li with id and number attributes
-  // and append it to the DOM
-  const li = document.createElement("li");
-  li.setAttribute("id", "num:" + itemid);
-  //and create a text node to display the person and their information
-  li.appendChild(
-    document.createTextNode(
-      " " + player.name + " - " + player.color + " - " + player.mascot + " "
-    )
-  );
-
-  listElement.append(li);
-  itemid += 1; // add a increase for the ids we set attributes for
-});
-
-// Adding text for the blue array
-blueTeam.forEach((player) => {
-  //  for each blue player we will create an li with id and number attributes
-  // and append it to the DOM
-  const li = document.createElement("li");
-  li.setAttribute("id", "num:" + itemid);
-  li.appendChild(
-    document.createTextNode(
-      " " + player.name + " - " + player.color + " - " + player.mascot + " "
-    )
-  );
-
-  listElement.append(li);
-  itemid += 1; // add a increase for the ids we set attributes for
-});
