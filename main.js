@@ -5,6 +5,7 @@
 // Please look over the Specs Checklist to make sure you understand the needs of this app.
 
 "use strict";
+// const assert = require("assert");
 console.log("JS is now loaded");
 
 const arrOfPeople = [
@@ -288,3 +289,37 @@ let makeBlue = (player) => {
   dolphin.style.listStyle = "none";
   blueTeamUl.append(dolphin);
 };
+
+// Test time:
+// When clicked, list of people should populate a list of names
+// When clicked, make player should REMOVE a name from list of people
+// and add them to the dodgeball players array
+// Dodgeball players should be added to either red team or blue team when clicked
+
+// if (typeof describe === "function") {
+//   describe("Player", function () {
+//     it("should have an id, name, skillset, place born, can throw, and can dodge upon instantiation", function () {
+//       const playerTest = new Player(
+//         7,
+//         "Mia Watu",
+//         17,
+//         "acrobatics",
+//         "Los Angeles, California",
+//         true,
+//         true,
+//         true,
+//         true,
+//         6
+//       );
+//       assert.equal(player.id);
+//       assert.equal(player.name);
+//       assert.equal(player.skillSet);
+//       assert.equal(player.placeBorn);
+//       assert.equal(player.canThrowBall);
+//       assert.equal(player.canDodgeBall);
+//       assert.equal(player.hasPaid);
+//       assert.equal(player.isHealthy);
+//       assert.equal(player.yearsExperience);
+//     });
+//   });
+// }
